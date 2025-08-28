@@ -1,0 +1,103 @@
+@use 'variables';
+
+/* ===== Footer ===== */
+.site-footer {
+    background: #0b1020;
+    color: #fff;
+    padding: 2rem 1rem;
+    font-size: .95rem;
+}
+
+.site-footer .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+    text-align: center;
+}
+
+.site-footer .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.site-footer .footer-brand img {
+    max-width: 140px;
+    height: auto;
+}
+
+.site-footer .footer-brand p {
+    margin: 0;
+}
+
+.site-footer .footer-contact p,
+.site-footer .footer-links p {
+    margin: .35rem 0;
+}
+
+.site-footer a {
+    color: variables.$primary-color;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: filter .25s ease;
+}
+
+/* hover avec filter */
+.site-footer a:hover {
+    filter: brightness(1.08);
+}
+
+/* ===== Tablet ===== */
+@media (max-width: variables.$tablet) {
+    .site-footer {
+        padding: 1.75rem 1rem;
+    }
+
+    .site-footer .container {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        text-align: center;
+    }
+
+    .site-footer .footer-brand img {
+        max-width: 130px;
+    }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: variables.$mobile) {
+    .site-footer {
+        padding: 1.5rem 1rem;
+        font-size: .95rem;
+    }
+
+    .site-footer .footer-brand {
+        gap: .4rem;
+    }
+
+    .site-footer .footer-brand img {
+        max-width: 110px;
+    }
+
+    /* zones cliquables plus grandes */
+    .site-footer .footer-contact a,
+    .site-footer .footer-links a {
+        display: inline-block;
+        padding: .25rem .15rem;
+    }
+
+    /* espacements aérés */
+    .site-footer .footer-contact p,
+    .site-footer .footer-links p {
+        margin: .25rem 0;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,125 @@
+@use 'variables';
+
+/* ====== Mentions légales ====== */
+.mentions-legales {
+    padding: 3rem 0;
+    background: #fff;
+}
+
+.mentions-legales .container {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.mentions-legales h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    color: variables.$text-color;
+}
+
+.mentions-legales h2 {
+    font-size: 1.35rem;
+    margin: 2rem 0 .75rem 0;
+    color: variables.$primary-color;
+}
+
+.mentions-legales p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: variables.$text-color;
+    opacity: .95;
+    margin: 0 0 1rem 0;
+}
+
+.mentions-legales ul {
+    margin: 0 0 1rem 1.25rem;
+    padding: 0;
+    list-style: disc;
+}
+
+.mentions-legales li {
+    margin: .35rem 0;
+    line-height: 1.6;
+    color: variables.$text-color;
+    opacity: .95;
+}
+
+.mentions-legales a {
+    color: variables.$primary-color;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.mentions-legales a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.mentions-legales .note {
+    font-size: .95rem;
+    color: #6b7280;
+}
+
+/* Petites séparations visuelles entre sections (optionnel) */
+.mentions-legales h2 + p,
+.mentions-legales h2 + ul {
+    border-top: 1px solid #e5e7eb;
+    padding-top: .75rem;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: variables.$tablet) {
+    .mentions-legales {
+        padding: 2.5rem 0;
+    }
+
+    .mentions-legales .container {
+        max-width: 780px;
+        padding: 0 1.25rem;
+    }
+
+    .mentions-legales h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .mentions-legales h2 {
+        font-size: 1.25rem;
+        margin: 1.6rem 0 .6rem 0;
+    }
+
+    .mentions-legales p,
+    .mentions-legales li {
+        font-size: 1.02rem;
+        line-height: 1.65;
+    }
+}
+
+@media (max-width: variables.$mobile) {
+    .mentions-legales {
+        padding: 2rem 0;
+    }
+
+    .mentions-legales .container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .mentions-legales h1 {
+        font-size: 1.7rem;
+    }
+
+    .mentions-legales h2 {
+        font-size: 1.15rem;
+    }
+
+    .mentions-legales p,
+    .mentions-legales li {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .mentions-legales ul {
+        margin-left: 1rem;
+    }
+}

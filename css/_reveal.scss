@@ -1,0 +1,56 @@
+/* ===== Scroll Reveal (multi-directions, accessible) ===== */
+
+/* Visible par défaut si JS inactif */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+/* Masqué tant que non visible quand JS actif */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Quand l'élément devient visible */
+.reveal.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ===== Variantes directionnelles ===== */
+.js .reveal-left  { transform: translateX(-40px); }
+.js .reveal-right { transform: translateX(40px); }
+.js .reveal-up    { transform: translateY(40px); }
+.js .reveal-down  { transform: translateY(-40px); }
+.js .reveal-fade  { opacity: 0; transform: none; }
+
+/* Quand visibles */
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-up.visible,
+.reveal-down.visible,
+.reveal-fade.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ===== Cascade optionnelle (délais progressifs) ===== */
+.reveal {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* ===== Accessibilité (motion-reduce) ===== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+
