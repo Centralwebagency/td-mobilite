@@ -19,6 +19,11 @@
   font-size: 1.25rem;
   color: #CC5500;
 }
+.site-header .brand img {
+  max-height: 70px;
+  width: auto;
+  display: block;
+}
 .site-header .main-nav {
   position: relative;
 }

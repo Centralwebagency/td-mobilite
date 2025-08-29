@@ -20,6 +20,11 @@
     color: variables.$primary-color;
   }
 
+  .brand img {
+    max-height: 70px;
+    width: auto;
+    display: block;
+  }
   .main-nav { 
     position: relative; 
   }
