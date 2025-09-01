@@ -20,7 +20,7 @@
   color: #CC5500;
 }
 .site-header .brand img {
-  max-height: 70px;
+  max-height: 80px;
   width: auto;
   display: block;
 }
@@ -1070,7 +1070,7 @@ img {
 /* ================= HERO ================= */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
