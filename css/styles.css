@@ -663,6 +663,41 @@
   border: 0;
 }
 
+.contact-direct {
+  padding: 3rem 1rem;
+  background: #f9f9f9;
+}
+.contact-direct .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.contact-direct-block {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 2rem;
+  flex: 1;
+  text-align: center;
+}
+.contact-direct-block h3 {
+  font-size: 1.3rem;
+  color: #CC5500;
+  margin-bottom: 0.5rem;
+}
+.contact-direct-block a {
+  color: #1f2937;
+  font-weight: bold;
+  text-decoration: none;
+}
+.contact-direct-block a:hover {
+  color: #CC5500;
+  text-decoration: underline;
+}
+
 @media (min-width: 900px) {
   .contact-form {
     grid-template-columns: repeat(2, minmax(260px, 1fr));
@@ -699,6 +734,13 @@
     padding: 1.1rem;
     gap: 1rem;
   }
+  .contact-direct .container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  .contact-direct-block {
+    padding: 1.5rem;
+  }
 }
 /* Mobile */
 @media (max-width: 480px) {
@@ -725,6 +767,12 @@
   }
   .form-actions .btn {
     width: 100%;
+  }
+  .contact-direct {
+    padding: 2rem 1rem;
+  }
+  .contact-direct-block {
+    padding: 1.5rem;
   }
 }
 /* ====== Mentions légales ====== */
