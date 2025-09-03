@@ -417,6 +417,18 @@ h1 {
     min-height: 45vh;
     background-position: center 50%;
   }
+
+  .why-us {
+    padding: 2rem 1rem;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
 }
 
 @media (max-width: variables.$mobile) {
@@ -502,6 +514,18 @@ h1 {
     min-height: 40vh;
     background-position: center 55%; /* remonte légèrement le focus */
     padding: 0 16px;
+  }
+
+  .why-us {
+    padding: 1.5rem 1rem;
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
   }
 }
 
