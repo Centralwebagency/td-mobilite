@@ -111,8 +111,12 @@ img {
 } 
 
 h1 { 
-  font-size: clamp(1rem, 5vw, 2rem); 
+  font-size: clamp(2rem, 5vw, 3rem); 
   margin-bottom: 1rem; 
+
+  .nowrap {
+    white-space: nowrap;
+  }
 } 
 
 .lead { 
@@ -333,6 +337,24 @@ h1 {
     &:hover img {
       transform: scale(1.08);
     }
+  }
+}
+
+/* ================= Pourquoi nous ? ==============*/
+.why-us {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #f9f9f9;
+
+  h2 {
+    color: variables.$primary-color;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    color: #555;
   }
 }
 
