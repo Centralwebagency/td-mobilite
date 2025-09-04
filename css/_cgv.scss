@@ -1,0 +1,97 @@
+@use 'variables';
+
+.cgv {
+  background-color: variables.$background;
+  color: variables.$text-color;
+  padding: 3rem 1.5rem;
+
+  h1 {
+    font-size: 2rem;
+    color: variables.$primary-color;
+    margin-bottom: 1rem;
+  }
+
+  .update {
+    font-size: 0.9rem;
+    color: darken(variables.$text-color, 20%);
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-top: 2rem;
+    color: variables.$secondary-color;
+  }
+
+  p, ul, table {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+
+  .cancellation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+
+    th, td {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: variables.$primary-color;
+      color: white;
+    }
+
+    td {
+      background-color: white;
+    }
+  }
+
+  /* TABLETTE */
+  @media (max-width: variables.$tablet) {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    .cancellation-table {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* MOBILE */
+  @media (max-width: variables.$mobile) {
+    padding: 2rem 0.75rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    p, ul {
+      font-size: 0.95rem;
+    }
+
+    .cancellation-table {
+      font-size: 0.85rem;
+
+      th, td {
+        padding: 0.5rem;
+      }
+    }
+  }
+}

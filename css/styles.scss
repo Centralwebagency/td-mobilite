@@ -4,6 +4,7 @@
 @use 'a-propos';
 @use 'contact';
 @use 'mentions-legales';
+@use 'cgv';
 @use 'reveal';
 @use 'footer';
 
@@ -32,7 +33,9 @@ body.no-scroll {
   overflow: hidden;
 }
 
-a { text-decoration: none; color: inherit; }
+a { 
+  text-decoration: none; 
+  color: inherit; }
 img { 
   max-width: 100%; 
   display: block; 
