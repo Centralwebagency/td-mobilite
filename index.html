@@ -242,28 +242,52 @@
     </section>
   
     <!-- ============ AVIS ============ -->
-    <section id="avis" class="section testimonials reveal">
-      <div class="container">
-        <header class="section-header">
-          <h2>Ils nous font confiance</h2>
-        </header>
+    <!-- SECTION : Avis Google / Google Business -->
+<section id="google-business" class="gb-section" aria-labelledby="gb-title">
+  <div class="gb-container">
+    <h2 id="gb-title">Avis Google</h2>
+    <p class="gb-subtitle">Découvrez les retours de nos clients et laissez le vôtre ⭐</p>
 
-        <div class="quotes">
-          <blockquote class="quote">
-            <p>“Organisation fluide pour notre séminaire. On rebooke l’an prochain.”</p>
-            <cite>— Claire, HR Manager</cite>
-          </blockquote>
-          <blockquote class="quote">
-            <p>“Navettes festival impeccables malgré le rush.”</p>
-            <cite>— Hugo, Directeur de prod.</cite>
-          </blockquote>
-            <blockquote class="quote">
-              <p>“Nous avons l'habitude de travailler avec Thierry, il est super.”</p>
-            <cite>— Julia, Régulatrice événementielle.</cite>
-          </blockquote>
-        </div>
-      </div>
-    </section>
+    <!-- Carte Google Maps (iframe officielle) -->
+    <div class="gb-map">
+      <!-- 🔧 Remplace le src par celui fourni par Google Maps (Partager > Intégrer une carte) -->
+      <iframe
+        class="gb-map-iframe"
+        src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d89450.30186952499!2d4.793898511271064!3d45.5237267786005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8d3f563a4ade87af%3A0xa4ad68600fe6a613!2s41%20Rue%20Victor%20Hugo%2C%2038200%20Vienne!3m2!1d45.523756399999996!2d4.8762991!5e0!3m2!1sfr!2sfr!4v1760179653623!5m2!1sfr!2sfr" 
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        aria-label="Emplacement Google Maps de l'entreprise">
+      </iframe>
+    </div>
+
+    <!-- Boutons vers la fiche Google -->
+    <div class="gb-actions">
+      <a
+        class="gb-btn gb-btn--primary"
+        href="https://share.google/8KriCXDETifCzcoG6"
+        target="_blank"
+        rel="noopener">
+        Voir nos avis sur Google
+      </a>
+
+      <a
+        class="gb-btn gb-btn--outline"
+        href="https://search.google.com/local/writereview?placeid=ChIJr4feSjpWP40RE6bmD2BoraQ"
+        target="_blank"
+        rel="noopener">
+        Laisser un avis
+      </a>
+    </div>
+
+    <p class="gb-fallback">
+      Si la carte ne s’affiche pas, consultez directement nos avis sur
+      <a href="https://share.google/8KriCXDETifCzcoG6" target="_blank" rel="noopener">Google</a>.
+    </p>
+  </div>
+</section>
+
+
 
   
 
