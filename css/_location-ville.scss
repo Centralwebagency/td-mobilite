@@ -1,0 +1,112 @@
+@use 'variables';
+
+.ville-content {
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .text-content {
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      color: variables.$text-color;
+    }
+
+    .btn {
+      margin-top: 1rem;
+    }
+  }
+
+  .image-content {
+
+    img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    }
+  }
+}
+
+
+/* ================= FAQ ================= */
+
+.faq-ville {
+  background: #f3f4f6;
+
+  .faq-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    transition: .25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    h3 {
+      color: variables.$primary-color;
+      margin-bottom: .75rem;
+      font-size: 1.1rem;
+    }
+
+    p {
+      color: variables.$text-color;
+      line-height: 1.7;
+    }
+  }
+}
+
+
+/* ================= HERO VILLE ================= */
+
+.ville-hero {
+
+  .lead {
+    max-width: 850px;
+    margin-inline: auto;
+  }
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: variables.$tablet) {
+
+  .ville-content {
+
+    .content-grid {
+      gap: 2rem;
+    }
+  }
+}
+
+
+@media (max-width: variables.$mobile) {
+
+  .ville-content {
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .image-content {
+      order: -1;
+    }
+  }
+
+  .faq-ville {
+
+    .faq-item {
+      padding: 1.25rem;
+    }
+  }
+}
