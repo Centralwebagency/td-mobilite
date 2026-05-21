@@ -1957,74 +1957,93 @@
   }
 }
 
-.ville-content .content-grid {
+.ville-hero .lead {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ville-content {
+  background-color: #ffffff;
+}
+
+.content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem;
   align-items: center;
 }
-.ville-content .text-content p {
+
+.text-content p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: #6b7280;
   margin-bottom: 1rem;
-  line-height: 1.8;
+}
+.text-content p strong {
   color: #1f2937;
+  font-weight: 600;
 }
-.ville-content .text-content .btn {
-  margin-top: 1rem;
+.text-content .btn {
+  margin-top: 1.25rem;
 }
-.ville-content .image-content img {
+
+.image-content img {
   width: 100%;
+  height: auto;
   border-radius: 14px;
   object-fit: cover;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  display: block;
 }
 
-/* ================= FAQ ================= */
 .faq-ville {
-  background: #f3f4f6;
+  background-color: #f9fafb;
 }
-.faq-ville .faq-item {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: 0.25s ease;
+
+.faq-item {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #CC5500;
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.85rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.faq-ville .faq-item:hover {
-  transform: translateY(-3px);
+.faq-item:last-child {
+  margin-bottom: 0;
 }
-.faq-ville .faq-item h3 {
-  color: #CC5500;
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+.faq-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
-.faq-ville .faq-item p {
+.faq-item h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
   color: #1f2937;
-  line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+.faq-item p {
+  font-size: 0.88rem;
+  color: #6b7280;
+  line-height: 1.75;
 }
 
-/* ================= HERO VILLE ================= */
-.ville-hero .lead {
-  max-width: 850px;
-  margin-inline: auto;
-}
-
-/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .ville-content .content-grid {
+  .content-grid {
     gap: 2rem;
   }
 }
 @media (max-width: 480px) {
-  .ville-content .content-grid {
+  .content-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  .ville-content .image-content {
+  .image-content {
     order: -1;
   }
-  .faq-ville .faq-item {
-    padding: 1.25rem;
+  .faq-item {
+    padding: 1rem 1.25rem;
   }
 }
 *,

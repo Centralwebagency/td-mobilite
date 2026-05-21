@@ -1,112 +1,154 @@
+// =============================================================================
+// _location-ville.scss — Pages SEO par ville
+// (location-autocar-lyon.html, saint-etienne.html, grenoble.html…)
+//
+// Ces pages partagent toutes le même template HTML.
+// Sections gérées ici :
+//   1. Hero ville    (.ville-hero)
+//   2. Contenu texte (.ville-content)
+//   3. FAQ           (.faq-ville)
+//
+// Note : .hero, .section, .services-grid, .service-card, .bandeau,
+// .why-us et .section-header sont définis dans _home.scss et styles.scss.
+// =============================================================================
+
 @use 'variables';
 
-.ville-content {
 
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .text-content {
-
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.8;
-      color: variables.$text-color;
-    }
-
-    .btn {
-      margin-top: 1rem;
-    }
-  }
-
-  .image-content {
-
-    img {
-      width: 100%;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0,0,0,.12);
-    }
-  }
-}
-
-
-/* ================= FAQ ================= */
-
-.faq-ville {
-  background: #f3f4f6;
-
-  .faq-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,.05);
-    transition: .25s ease;
-
-    &:hover {
-      transform: translateY(-3px);
-    }
-
-    h3 {
-      color: variables.$primary-color;
-      margin-bottom: .75rem;
-      font-size: 1.1rem;
-    }
-
-    p {
-      color: variables.$text-color;
-      line-height: 1.7;
-    }
-  }
-}
-
-
-/* ================= HERO VILLE ================= */
+// =============================================================================
+// 1. HERO VILLE
+// Surcharge légère du hero global pour les pages ville :
+// le lead est élargi car le titre H1 est plus long (SEO local).
+// =============================================================================
 
 .ville-hero {
 
   .lead {
-    max-width: 850px;
-    margin-inline: auto;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 
-/* ================= RESPONSIVE ================= */
+// =============================================================================
+// 2. VILLE CONTENT — Grille texte / image
+// =============================================================================
+
+.ville-content {
+  background-color: variables.$surface;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.text-content {
+
+  p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: variables.$text-muted;
+    margin-bottom: 1rem;
+
+    strong {
+      color: variables.$text-color;
+      font-weight: 600;
+    }
+  }
+
+  .btn {
+    margin-top: 1.25rem;
+  }
+}
+
+.image-content {
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: variables.$radius-lg;
+    object-fit: cover;
+    box-shadow: variables.$shadow-card-hover;
+    display: block;
+  }
+}
+
+
+// =============================================================================
+// 3. FAQ VILLE
+// =============================================================================
+
+.faq-ville {
+  background-color: variables.$background;
+}
+
+.faq-item {
+  background-color: variables.$surface;
+  border: 1px solid variables.$border-color;
+  border-left: 3px solid variables.$primary-color;
+  border-radius: 0 variables.$radius-md variables.$radius-md 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.85rem;
+  transition: transform variables.$transition-base,
+              box-shadow variables.$transition-base;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    transform: translateX(4px);
+    box-shadow: variables.$shadow-card-hover;
+  }
+
+  h3 {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: variables.$text-color;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: variables.$text-muted;
+    line-height: 1.75;
+  }
+}
+
+
+// =============================================================================
+// RESPONSIVE — Tablette (≤ 768px)
+// =============================================================================
 
 @media (max-width: variables.$tablet) {
 
-  .ville-content {
-
-    .content-grid {
-      gap: 2rem;
-    }
+  .content-grid {
+    gap: 2rem;
   }
 }
 
 
+// =============================================================================
+// RESPONSIVE — Mobile (≤ 480px)
+// =============================================================================
+
 @media (max-width: variables.$mobile) {
 
-  .ville-content {
-
-    .content-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .image-content {
-      order: -1;
-    }
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .faq-ville {
+  // L'image passe au-dessus du texte sur mobile
+  .image-content {
+    order: -1;
+  }
 
-    .faq-item {
-      padding: 1.25rem;
-    }
+  .faq-item {
+    padding: 1rem 1.25rem;
   }
 }
