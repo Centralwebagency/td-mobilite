@@ -1,279 +1,362 @@
+// =============================================================================
+// _contact.scss — Page contact.html
+//
+// Sections :
+//   1. Contact Intro (bandeau d'explication)
+//   2. Contact Direct (téléphone + email en cartes cliquables)
+//   3. Contact Section (formulaire de devis)
+// =============================================================================
+
 @use 'variables';
 
-/* ====== Contact — Intro ====== */
+
+// =============================================================================
+// 1. CONTACT INTRO
+// =============================================================================
+
 .contact-intro {
-    background: #0b1020;
-    color: #fff;
-    padding: 2.75rem 1rem;
+  background-color: variables.$dark;
+  color: variables.$white;
+  padding: variables.$section-padding 0;
 }
 
-.contact-intro .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-}
+.contact-intro__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
 
-.contact-intro h2 {
-    font-size: 2rem;
-    line-height: 1.2;
+  .section-tag {
+    background-color: rgba(variables.$white, 0.1);
+    color: rgba(variables.$white, 0.85);
     margin-bottom: 0.75rem;
-}
+  }
 
-.contact-intro p {
-    font-size: 1.075rem;
-    line-height: 1.7;
-    opacity: .95;
+  h2 {
+    font-family: variables.$font-display;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: variables.$white;
+    margin-bottom: 1rem;
+    letter-spacing: -0.3px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(variables.$white, 0.75);
+    max-width: 760px;
     margin: 0 auto;
-    max-width: 900px;
+  }
 }
 
+
+// =============================================================================
+// 2. CONTACT DIRECT — Cartes téléphone & email (cliquables)
+// =============================================================================
+
+.contact-direct {
+  background-color: variables.$background;
+  padding: variables.$section-padding 0;
+}
+
+.contact-direct__title {
+  font-family: variables.$font-display;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  color: variables.$text-color;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.3px;
+}
+
+.contact-direct__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// Carte cliquable — le lien englobe tout le bloc
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  background-color: variables.$surface;
+  border: 1px solid variables.$border-color;
+  border-radius: variables.$radius-lg;
+  padding: 2rem 1.5rem;
+  text-decoration: none;
+  color: variables.$text-color;
+  transition: transform variables.$transition-smooth,
+              box-shadow variables.$transition-smooth,
+              border-color variables.$transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: variables.$shadow-card-hover;
+    border-color: rgba(variables.$primary-color, 0.3);
+  }
+}
+
+.contact-card__icon {
+  font-size: 1.75rem;
+  width: 56px;
+  height: 56px;
+  border-radius: variables.$radius-md;
+  background-color: rgba(variables.$primary-color, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.contact-card h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: variables.$text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.contact-card__value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: variables.$primary-color;
+}
+
+
+// =============================================================================
+// 3. FORMULAIRE DE DEVIS
+// =============================================================================
 
 .contact-section {
-    padding: 3rem 1rem;
-    background: #fff;
+  padding: variables.$section-padding 0;
+  background-color: variables.$surface;
 }
 
-.contact-section .container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
+.contact-section__header {
+  text-align: center;
+  margin-bottom: 2rem;
 
-.contact-section h2 {
-    font-size: 1.9rem;
-    margin-bottom: 1rem;
+  h2 {
+    font-family: variables.$font-display;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 700;
     color: variables.$text-color;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.3px;
+  }
 }
 
-/* Carte formulaire */
+// Wrapper du formulaire — carte blanche avec ombre
 .contact-form {
-    display: grid;
-    gap: 1.1rem;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
-    padding: 1.25rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem 1.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: variables.$surface;
+  border: 1px solid variables.$border-color;
+  border-radius: variables.$radius-lg;
+  padding: 2rem;
+  box-shadow: variables.$shadow-card;
 }
 
-/* Champs */
-.contact-form .field {
-    display: flex;
-    flex-direction: column;
-    gap: .4rem;
+// Champ qui prend toute la largeur (textarea, checkbox, bouton)
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .contact-form label {
-    font-weight: 600;
-    font-size: .95rem;
-    color: variables.$text-color;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: variables.$text-color;
 }
 
+// Tous les champs de saisie
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form input[type="tel"],
 .contact-form input[type="date"],
+.contact-form input[type="number"],
 .contact-form select,
 .contact-form textarea {
-    padding: .8rem .9rem;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    background: #fff;
-    font-size: 1rem;
-    color: variables.$text-color;
-    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
-}
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid variables.$border-color;
+  border-radius: variables.$radius-md;
+  background-color: variables.$surface;
+  font-size: 0.97rem;
+  font-family: variables.$font-body;
+  color: variables.$text-color;
+  width: 100%;
+  transition: border-color variables.$transition-base,
+              box-shadow variables.$transition-base;
 
-/* Placeholder discret */
-.contact-form ::placeholder {
-    color: #9ca3af;
-}
+  &::placeholder {
+    color: variables.$text-muted;
+    opacity: 0.6;
+  }
 
-/* Focus accessible et propre */
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
+  &:focus {
     outline: none;
     border-color: variables.$primary-color;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .18);
-    background: #fff;
+    box-shadow: 0 0 0 3px rgba(variables.$primary-color, 0.15);
+  }
+}
+
+.contact-form select {
+  // Apparence native supprimée pour le styling custom
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
 }
 
 .contact-form textarea {
-    resize: vertical;
-    min-height: 130px;
+  resize: vertical;
+  min-height: 130px;
 }
 
-/* Consentement */
-.contact-form .checkbox {
-    display: flex;
-    align-items: flex-start;
-    gap: .6rem;
-    padding-top: .25rem;
-}
+// Consentement RGPD
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
 
-.contact-form .checkbox input[type="checkbox"] {
-    margin-top: .25rem;
+  input[type="checkbox"] {
+    flex-shrink: 0;
     width: 18px;
     height: 18px;
-}
+    margin-top: 0.15rem;
+    accent-color: variables.$primary-color;
+    cursor: pointer;
+  }
 
-/* Actions */
-.form-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: .25rem;
-}
-
-.form-actions .small-alt {
-    font-size: .9rem;
-    color: #6b7280;
-}
-
-/* Accessibilité visuelle */
-.sr-only {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0,0,0,0);
-    white-space: nowrap; border: 0;
-}
-
-.contact-direct {
-    padding: 3rem 1rem;
-    background: #f9f9f9;
-
-    .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-}
-
-.contact-direct-block {
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 2rem;
-    flex: 1;
-    text-align: center;
-
-    h3 {
-        font-size: 1.3rem;
-        color: variables.$primary-color;
-        margin-bottom: 0.5rem;
-    }
+  label {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: variables.$text-muted;
+    line-height: 1.6;
+    cursor: pointer;
 
     a {
-        color: variables.$text-color;
-        font-weight: bold;
-        text-decoration: none;
+      color: variables.$primary-color;
+      text-decoration: underline;
 
-        &:hover {
-            color: variables.$primary-color;
-            text-decoration: underline;
-        }
+      &:hover {
+        color: variables.$secondary-color;
+      }
     }
+  }
+}
+
+// Bouton de soumission
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+// Zone de retour statut (Formspree / JS)
+.form-status {
+  grid-column: 1 / -1;
+  font-size: 0.9rem;
+  text-align: center;
+  min-height: 1.5rem;
+}
+
+// Champ honeypot anti-spam — visuellement invisible
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 
-@media (min-width: 900px) {
-    .contact-form {
-        grid-template-columns: repeat(2, minmax(260px, 1fr));
-        gap: 1.1rem 1.25rem;
-        padding: 1.5rem;
-    }
-
-    .contact-form .field:has(#message) {
-        grid-column: 1 / -1;
-    }
-
-    .contact-form .checkbox,
-    .form-actions {
-        grid-column: 1 / -1;
-    }
-}
-
+// =============================================================================
+// RESPONSIVE — Tablette (≤ 768px)
+// =============================================================================
 
 @media (max-width: variables.$tablet) {
-    .contact-intro {
-        padding: 2.25rem 1rem;
-    }
 
-    .contact-intro h2 {
-        font-size: 1.75rem;
-    }
+  .contact-intro {
+    padding: variables.$section-padding-tablet 0;
+  }
 
-    .contact-intro p {
-        font-size: 1.02rem;
-        line-height: 1.65;
-    }
+  .contact-direct {
+    padding: variables.$section-padding-tablet 0;
+  }
 
-    .contact-section {
-        padding: 2.5rem 1rem;
-    }
+  .contact-direct__grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 560px;
+  }
 
-    .contact-section h2 {
-        font-size: 1.7rem;
-    }
+  .contact-section {
+    padding: variables.$section-padding-tablet 0;
+  }
 
-    .contact-form {
-        border-radius: 12px;
-        padding: 1.1rem;
-        gap: 1rem;
-    }
+  // Sur tablette le formulaire passe en 1 colonne
+  .contact-form {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
 
-    .contact-direct .container {
-        flex-direction: column;
-        padding: 2rem 1rem;
-    }
-
-    .contact-direct-block {
-        padding: 1.5rem;
-    }
+  .field--full {
+    grid-column: 1;
+  }
 }
 
-/* Mobile */
+
+// =============================================================================
+// RESPONSIVE — Mobile (≤ 480px)
+// =============================================================================
+
 @media (max-width: variables.$mobile) {
-    .contact-intro {
-        padding: 2rem 1rem;
-    }
 
-    .contact-intro h2 {
-        font-size: 1.5rem;
-        margin-bottom: .6rem;
-    }
+  .contact-intro {
+    padding: variables.$section-padding-mobile 0;
+  }
 
-    .contact-intro p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
+  .contact-direct {
+    padding: variables.$section-padding-mobile 0;
+  }
 
-    .contact-section {
-        padding: 2rem 1rem;
-    }
+  // Les cartes téléphone / email passent en colonne
+  .contact-direct__grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
 
-    .contact-section h2 {
-        font-size: 1.5rem;
-    }
+  .contact-section {
+    padding: variables.$section-padding-mobile 0;
+  }
 
-    .form-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
+  .contact-form {
+    padding: 1.25rem;
+    border-radius: variables.$radius-md;
+    gap: 1rem;
+  }
 
-    .form-actions .btn {
-        width: 100%;
-    }
-
-    .contact-direct {
-        padding: 2rem 1rem;
-    }
-
-    .contact-direct-block {
-        padding: 1.5rem;
-    }
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
-

@@ -1,11 +1,82 @@
+// =============================================================================
+// _variables.scss
+// Tous les tokens du design system TD Mobilité.
+// Modifier ici = se répercute sur l'ensemble du site.
+// =============================================================================
 
-$primary-color: #CC5500;
-$secondary-color: #B36700;
-$background: #f9fafb; 
-$text-color: #1f2937; 
 
-/* Breakpoints */
+// =============================================================================
+// COULEURS — Palette de marque
+// =============================================================================
+
+$primary-color:   #CC5500;  
+$secondary-color: #B36700;   
+
+// Surfaces
+$white:      #ffffff;
+$background: #f9fafb;        
+$surface:    #ffffff;        
+$surface-alt: #f3f4f6;      
+
+// Texte
+$text-color:    #1f2937;     
+$text-muted:    #6b7280;     
+$text-inverted: #ffffff;     
+
+// Fonds sombres (hero, bandeau, footer)
+$dark:       #111827;        
+$dark-mid:   #1f2937;       
+$border-color: #e5e7eb;     
+
+
+// =============================================================================
+// TYPOGRAPHIE
+// =============================================================================
+
+$font-display: 'Lexend Tera', sans-serif;
+$font-body:    system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+
+// =============================================================================
+// ESPACEMENTS — Section padding par breakpoint
+// =============================================================================
+
+$section-padding:        4rem;
+$section-padding-tablet: 3rem;
+$section-padding-mobile: 2.25rem;
+
+
+// =============================================================================
+// BORDURES ARRONDIES
+// =============================================================================
+
+$radius-sm:   6px;
+$radius-md:   10px;
+$radius-lg:   14px;
+$radius-pill: 999px;
+
+
+// =============================================================================
+// OMBRES
+// =============================================================================
+
+$shadow-card:       0 4px 16px rgba(0, 0, 0, 0.07);
+$shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
+$shadow-nav:        0 2px 20px rgba(0, 0, 0, 0.15);
+
+
+// =============================================================================
+// TRANSITIONS
+// =============================================================================
+
+$transition-base:   0.25s ease;
+$transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+// =============================================================================
+// BREAKPOINTS
+// =============================================================================
+
 $tablet: 768px;
 $mobile: 480px;
-
 

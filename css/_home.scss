@@ -1,0 +1,846 @@
+// =============================================================================
+// _home.scss — Sections de la page d'accueil (index.html)
+//
+// Sections dans l'ordre du DOM :
+//   1. Hero
+//   2. Bio
+//   3. Services
+//   4. Bandeau
+//   5. Événements
+//   6. Galerie
+//   7. Process (étapes)
+//   8. Why Us
+//   9. Google Business (avis + carte)
+// =============================================================================
+
+@use 'variables';
+
+
+// =============================================================================
+// 1. HERO
+// =============================================================================
+
+// Hauteur du header fixe — doit correspondre à la hauteur définie dans _header.scss.
+// Si le header change, mettre à jour ici aussi.
+$header-height: 70px;
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: variables.$white;
+
+  // Le padding-top pousse le contenu sous le header fixe.
+  // Sans lui, le hero démarre à top:0 et le texte se retrouve caché derrière la nav.
+  padding-top: $header-height;
+
+  // L'image est aussi en HTML pour fetchpriority — le CSS la réutilise comme fond
+  background: url('../images/hero.webp') no-repeat center center / cover;
+
+  // Overlay sombre pour la lisibilité du texte
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(variables.$dark, 0.58);
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+    // padding horizontal réduit sur les petits écrans via les media queries
+    padding: 2rem;
+    width: 100%;
+  }
+
+  // Balise HTML cachée — l'image est uniquement là pour fetchpriority LCP
+  .hero-media {
+    display: none;
+  }
+}
+
+// Pastille animée "Disponible 7j/7"
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(variables.$primary-color, 0.18);
+  border: 1px solid rgba(variables.$primary-color, 0.4);
+  color: rgba(variables.$white, 0.9);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 5px 14px;
+  border-radius: variables.$radius-pill;
+  margin-bottom: 1.25rem;
+}
+
+// Point clignotant dans la pastille
+.hero-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: variables.$primary-color;
+  animation: badge-blink 1.8s ease-in-out infinite;
+}
+
+@keyframes badge-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+.hero h1 {
+  font-family: variables.$font-display;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+// Le nom "TD Mobilité" mis en valeur en orange
+.hero__highlight {
+  color: variables.$primary-color;
+}
+
+.lead {
+  font-size: 1.15rem;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+// Bloc de chiffres-clés en bas du hero
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-stat__num {
+  font-family: variables.$font-display;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: variables.$white;
+}
+
+.hero-stat__label {
+  font-size: 0.72rem;
+  color: rgba(variables.$white, 0.55);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+
+// =============================================================================
+// 2. BIO
+// =============================================================================
+
+.bio {
+  background-color: variables.$surface;
+  padding: 4rem 1.5rem;
+
+  .container-bio {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    // Colonne gauche : barre décorative 4px / Colonne droite : contenu
+    grid-template-columns: 4px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+// Barre latérale dégradée (orange → couleur secondaire)
+.bio__accent-bar {
+  background: linear-gradient(
+    180deg,
+    variables.$primary-color 0%,
+    variables.$secondary-color 100%
+  );
+  border-radius: variables.$radius-pill;
+  align-self: stretch;
+}
+
+.bio__content {
+  h2 {
+    font-family: variables.$font-display;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: variables.$text-color;
+    margin-bottom: 1rem;
+    letter-spacing: -0.3px;
+  }
+
+  p {
+    color: variables.$text-muted;
+    line-height: 1.8;
+    margin-bottom: 0.85rem;
+
+    strong {
+      color: variables.$text-color;
+    }
+  }
+}
+
+
+// =============================================================================
+// 3. SERVICES
+// =============================================================================
+
+.services {
+  background-color: variables.$background;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background-color: variables.$surface;
+  border: 1px solid variables.$border-color;
+  border-radius: variables.$radius-lg;
+  padding: 1.5rem;
+  transition: transform variables.$transition-smooth,
+              box-shadow variables.$transition-smooth;
+
+  // Barre colorée animée qui se déploie en haut au hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      variables.$primary-color,
+      variables.$secondary-color
+    );
+    border-radius: variables.$radius-lg variables.$radius-lg 0 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform variables.$transition-smooth;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: variables.$shadow-card-hover;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+// Carré arrondi contenant l'icône emoji
+.service-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: variables.$radius-md;
+  background-color: rgba(variables.$primary-color, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: variables.$text-color;
+  margin-bottom: 0.45rem;
+}
+
+.service-card p {
+  font-size: 0.88rem;
+  color: variables.$text-muted;
+  line-height: 1.65;
+}
+
+
+// =============================================================================
+// 4. BANDEAU
+// =============================================================================
+
+.bandeau {
+  position: relative;
+  min-height: 55vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+  text-align: center;
+  color: variables.$white;
+
+  // Image de fond responsive — surchargée par media queries
+  background: url('../images/bandeau-1920.jpg') center / cover no-repeat;
+}
+
+// Overlay sombre posé en CSS (plus propre qu'un ::before sur la section)
+.bandeau__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(variables.$dark, 0.55);
+  z-index: 0;
+}
+
+.bandeau-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+
+  h2 {
+    font-family: variables.$font-display;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.3px;
+  }
+
+  p {
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Bouton spécifique au bandeau (fond blanc, texte sombre)
+.btn-bandeau {
+  display: inline-block;
+  background-color: variables.$white;
+  color: variables.$primary-color;
+  padding: 0.8rem 2rem;
+  border-radius: variables.$radius-pill;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform variables.$transition-base,
+              background-color variables.$transition-base,
+              color variables.$transition-base;
+
+  &:hover {
+    background-color: variables.$primary-color;
+    color: variables.$white;
+    transform: translateY(-2px);
+  }
+}
+
+
+// =============================================================================
+// 5. ÉVÉNEMENTS
+// =============================================================================
+
+.events {
+  background-color: variables.$surface;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.event-card {
+  background-color: variables.$background;
+  border: 1px solid variables.$border-color;
+  border-radius: variables.$radius-lg;
+  padding: 1.5rem;
+  transition: background-color variables.$transition-smooth,
+              transform variables.$transition-smooth,
+              box-shadow variables.$transition-smooth;
+
+  &:hover {
+    background-color: variables.$dark;
+    transform: translateY(-4px);
+    box-shadow: variables.$shadow-card-hover;
+
+    h3 { color: variables.$primary-color; }
+    p  { color: rgba(variables.$white, 0.65); }
+  }
+}
+
+.event-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.event-card h3 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: variables.$text-color;
+  margin-bottom: 0.4rem;
+  transition: color variables.$transition-smooth;
+}
+
+.event-card p {
+  font-size: 0.85rem;
+  color: variables.$text-muted;
+  line-height: 1.65;
+  transition: color variables.$transition-smooth;
+}
+
+
+// =============================================================================
+// 6. GALERIE
+// =============================================================================
+
+.galerie {
+  background-color: variables.$background;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: variables.$radius-lg;
+  box-shadow: variables.$shadow-card;
+  aspect-ratio: 4 / 3;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform variables.$transition-smooth;
+    display: block;
+  }
+
+  &:hover img {
+    transform: scale(1.07);
+  }
+}
+
+
+// =============================================================================
+// 7. PROCESS — Comment ça marche
+// =============================================================================
+
+.process {
+  background-color: variables.$surface;
+}
+
+.steps {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.step {
+  display: grid;
+  // Colonne gauche : pastille numérotée 48px / Colonne droite : texte
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  background-color: variables.$background;
+  border: 1px solid variables.$border-color;
+  border-radius: variables.$radius-md;
+  padding: 1rem 1.25rem;
+  transition: transform variables.$transition-base,
+              box-shadow variables.$transition-base;
+
+  &:hover {
+    // Déplacement horizontal = évoque la progression vers la droite
+    transform: translateX(5px);
+    box-shadow: variables.$shadow-card-hover;
+  }
+}
+
+// Pastille numérotée — fond sombre par défaut
+.step__num {
+  width: 48px;
+  height: 48px;
+  border-radius: variables.$radius-md;
+  background-color: variables.$dark;
+  color: variables.$white;
+  font-family: variables.$font-display;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color variables.$transition-base;
+}
+
+.step__body {
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: variables.$text-color;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: 0.87rem;
+    color: variables.$text-muted;
+    line-height: 1.6;
+  }
+}
+
+// Modificateur : step final (étape 4) avec pastille orange
+.step--accent .step__num {
+  background-color: variables.$primary-color;
+}
+
+
+// =============================================================================
+// 8. WHY US — Pourquoi nous choisir
+// =============================================================================
+
+.why-us {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background-color: variables.$background;
+
+  .section-tag {
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-family: variables.$font-display;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: variables.$text-color;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    max-width: 520px;
+    margin: 0 auto 1.75rem;
+    color: variables.$text-muted;
+    font-size: 0.97rem;
+  }
+}
+
+
+// =============================================================================
+// 9. GOOGLE BUSINESS — Avis clients & carte
+// =============================================================================
+
+.gb-section {
+  background-color: variables.$surface;
+  padding: 4rem 1.5rem;
+  text-align: center;
+
+  .gb-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-family: variables.$font-display;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: variables.$text-color;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.gb-subtitle {
+  font-size: 1rem;
+  color: variables.$text-muted;
+  margin-bottom: 2rem;
+}
+
+.gb-map {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  border-radius: variables.$radius-lg;
+  box-shadow: variables.$shadow-card;
+}
+
+.gb-map-iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+}
+
+.gb-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.gb-btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.95rem;
+  border-radius: variables.$radius-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform variables.$transition-base,
+              background-color variables.$transition-base,
+              border-color variables.$transition-base,
+              color variables.$transition-base;
+
+  &--primary {
+    background-color: variables.$primary-color;
+    color: variables.$white;
+    border: 2px solid variables.$primary-color;
+
+    &:hover {
+      background-color: variables.$secondary-color;
+      border-color: variables.$secondary-color;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: variables.$primary-color;
+    border: 2px solid variables.$primary-color;
+
+    &:hover {
+      background-color: variables.$primary-color;
+      color: variables.$white;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.gb-fallback {
+  font-size: 0.88rem;
+  color: variables.$text-muted;
+  margin-top: 1rem;
+
+  a {
+    color: variables.$primary-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: variables.$secondary-color;
+    }
+  }
+}
+
+
+// =============================================================================
+// RESPONSIVE — Tablette (≤ 768px)
+// =============================================================================
+
+@media (max-width: variables.$tablet) {
+
+  // Hero
+  .hero {
+    min-height: 75vh;
+
+    .container {
+      // padding: 1.5rem s'applique sur les 4 côtés ;
+      // padding-top est géré par le $header-height défini en haut du fichier
+      padding: 1.5rem;
+    }
+  }
+
+  .hero-stats {
+    gap: 1.75rem;
+  }
+
+  .hero-stat__num {
+    font-size: 1.3rem;
+  }
+
+  // Bio
+  .bio .container-bio {
+    gap: 1.5rem;
+  }
+
+  // Services : 2 colonnes
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Bandeau
+  .bandeau {
+    min-height: 45vh;
+    background-image: url('../images/bandeau-768.jpg');
+    background-position: center 50%;
+  }
+
+  // Événements : 2 colonnes
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Galerie : 2 colonnes
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Google Maps
+  .gb-map-iframe {
+    height: 340px;
+  }
+
+  .gb-actions {
+    flex-direction: column;
+    align-items: center;
+
+    .gb-btn {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+
+  .why-us {
+    padding: 2.5rem 1rem;
+  }
+}
+
+// =============================================================================
+// RESPONSIVE — Mobile (≤ 480px)
+// =============================================================================
+
+@media (max-width: variables.$mobile) {
+
+  // Hero
+  .hero {
+    // Sur mobile la min-height prend en compte le padding-top hérité du $header-height
+    min-height: 60vh;
+    text-align: left;
+
+    .container {
+      padding: 1.25rem;
+    }
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-stats {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  // Bio : colonne unique, barre masquée
+  .bio .container-bio {
+    grid-template-columns: 1fr;
+  }
+
+  .bio__accent-bar {
+    display: none;
+  }
+
+  // Services : 1 colonne
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Bandeau
+  .bandeau {
+    min-height: 40vh;
+    background-image: url('../images/bandeau-480.jpg');
+    background-position: center 55%;
+    padding: 2rem 1rem;
+  }
+
+  // Événements : 1 colonne
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Galerie : carrousel horizontal (swipe natif)
+  // overflow-x: auto sur cet élément est intentionnel et isolé —
+  // le overflow-x: hidden du body est neutralisé ici via un wrapper implicite
+  .gallery-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(variables.$primary-color, 0.4);
+      border-radius: variables.$radius-pill;
+    }
+  }
+
+  .gallery-item {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  // Steps : réduire la pastille
+  .step {
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+  }
+
+  .step__num {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  // Google Maps
+  .gb-map-iframe {
+    height: 280px;
+  }
+
+  .why-us {
+    padding: 2rem 1rem;
+  }
+}
+
+// Breakpoint intermédiaire : images bandeau
+@media (max-width: 1024px) {
+  .bandeau {
+    min-height: 50vh;
+    background-image: url('../images/bandeau-1200.jpg');
+    background-position: center 45%;
+  }
+}

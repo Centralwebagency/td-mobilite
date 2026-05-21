@@ -1,144 +1,248 @@
+// =============================================================================
+// _a-propos.scss — Page à propos (a-propos.html)
+//
+// Sections :
+//   1. About Founder (split texte / photo circulaire)
+//   2. Values (grille de 4 cartes + conclusion)
+//
+// Note : .hero, .hero--inner, .section-tag, .section-header
+// sont des classes globales définies dans _home.scss et styles.scss.
+// =============================================================================
+
 @use 'variables';
 
-/* ====== Fondateur ====== */
+
+// =============================================================================
+// 1. ABOUT FOUNDER — Section split texte / photo
+// =============================================================================
+
 .about-founder {
-    padding: 3.5rem 0;
-    background: #ffffff;
+  padding: variables.$section-padding 0;
+  background-color: variables.$surface;
 }
 
-.about-founder .container {
-    max-width: 1100px;
-    margin: 0 auto;
+.about-founder__split {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.about-founder .split {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2rem;
-    align-items: center;
-}
+// Colonne texte
+.about-founder__text {
+  .section-tag {
+    margin-bottom: 0.75rem;
+  }
 
-.about-founder .text h2 {
-    font-size: 2rem;
-    line-height: 1.25;
+  h2 {
+    font-family: variables.$font-display;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: variables.$text-color;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.3px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: variables.$text-muted;
     margin-bottom: 1rem;
-    color: variables.$text-color;
+
+    strong {
+      color: variables.$text-color;
+      font-weight: 600;
+    }
+  }
 }
 
-.about-founder .text p {
-    font-size: 1.075rem;
-    line-height: 1.7;
-    color: variables.$text-color;
-    opacity: 0.95;
-    margin: 0 0 1rem 0;
+// Ligne "zones d'intervention" mise en avant
+.about-founder__region {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background-color: rgba(variables.$primary-color, 0.07);
+  border-left: 3px solid variables.$primary-color;
+  border-radius: 0 variables.$radius-sm variables.$radius-sm 0;
+  padding: 0.6rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: variables.$text-color;
+
+  strong {
+    color: variables.$primary-color;
+  }
 }
 
-.about-founder .text .region {
-    margin-top: .5rem;
-    opacity: 1;
-}
+// Colonne photo circulaire
+.about-founder__photo {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
-.about-founder .photo {
-    margin: 0;
-    justify-self: center;
-    text-align: center;
-}
-
-.about-founder .photo img {
-    width: 300px;
-    height: 300px;
+  img {
+    width: 280px;
+    height: 280px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0 12px 30px rgba(0,0,0,.15);
-    border: 4px solid #fff;
+    // Anneau double : blanc intérieur + couleur primaire extérieure
+    border: 4px solid variables.$white;
+    outline: 3px solid variables.$primary-color;
+    outline-offset: 4px;
+    box-shadow: variables.$shadow-card-hover;
+    display: block;
+  }
+
+  figcaption {
+    font-size: 0.82rem;
+    color: variables.$text-muted;
+    margin-top: 1rem;
+    font-style: italic;
+  }
 }
 
-.about-founder .photo figcaption {
-    font-size: .85rem;
-    color: variables.$text-color;
-    opacity: .7;
-    margin-top: .5rem;
-}
 
-/* ====== Valeurs ====== */
+// =============================================================================
+// 2. VALUES — Grille de 4 cartes + conclusion
+// =============================================================================
+
 .values {
-    background: #f8fafc;
-    padding: 3rem 1rem;
-    text-align: center;
+  padding: variables.$section-padding 0;
+  background-color: variables.$background;
 }
 
-.values .container {
-    max-width: 900px;
-    margin: 0 auto;
+// Grille 2×2 des cartes de valeurs
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
-.values h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: variables.$text-color;
+.value-card {
+  background-color: variables.$surface;
+  border: 1px solid variables.$border-color;
+  border-radius: variables.$radius-lg;
+  padding: 1.5rem;
+  transition: transform variables.$transition-smooth,
+              box-shadow variables.$transition-smooth,
+              border-color variables.$transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: variables.$shadow-card-hover;
+    border-color: rgba(variables.$primary-color, 0.25);
+  }
 }
 
-.values p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: variables.$text-color;
-    opacity: .95;
-    margin: 0 auto;
+// Icône emoji dans un carré arrondi coloré
+.value-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: variables.$radius-md;
+  background-color: rgba(variables.$primary-color, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-/* ====== Media queries groupées ====== */
+.value-card h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: variables.$text-color;
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  font-size: 0.88rem;
+  color: variables.$text-muted;
+  line-height: 1.7;
+}
+
+// Paragraphe de conclusion centré sous les cartes
+.values__conclusion {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.97rem;
+  color: variables.$text-muted;
+  line-height: 1.8;
+  padding-top: 1.5rem;
+  border-top: 1px solid variables.$border-color;
+}
+
+
+// =============================================================================
+// RESPONSIVE — Tablette (≤ 768px)
+// =============================================================================
+
 @media (max-width: variables.$tablet) {
-    .about-founder .split {
-        grid-template-columns: 1fr;
-    }
 
-    .about-founder .text {
-        order: 1;
-    }
+  .about-founder {
+    padding: variables.$section-padding-tablet 0;
+  }
 
-    .about-founder .photo {
-        order: 2;
-    }
+  // La grille passe en colonne unique : texte au-dessus, photo en-dessous
+  .about-founder__split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 
-    .about-founder .photo img {
-        width: 220px;
-        height: 220px;
-    }
+  .about-founder__text { order: 1; }
+  .about-founder__photo { order: 2; }
 
-    .about-founder .text h2,
-    .values h2 {
-        font-size: 1.75rem;
-    }
+  .about-founder__photo img {
+    width: 220px;
+    height: 220px;
+  }
 
-    .about-founder .text p,
-    .values p {
-        font-size: 1.05rem;
-        line-height: 1.65;
-    }
-
-    .values {
-        padding: 2.5rem 1rem;
-    }
+  .values {
+    padding: variables.$section-padding-tablet 0;
+  }
 }
+
+
+// =============================================================================
+// RESPONSIVE — Mobile (≤ 480px)
+// =============================================================================
 
 @media (max-width: variables.$mobile) {
-    .about-founder {
-        padding: 2.5rem 0;
-    }
 
-    .about-founder .photo img {
-        width: 190px;
-        height: 190px;
-    }
+  .about-founder {
+    padding: variables.$section-padding-mobile 0;
+  }
 
-    .about-founder .text h2,
-    .values h2 {
-        font-size: 1.5rem;
-    }
+  .about-founder__split {
+    gap: 2rem;
+  }
 
-    .about-founder .text p,
-    .values p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
+  .about-founder__photo img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-founder__region {
+    font-size: 0.85rem;
+  }
+
+  // Les cartes de valeurs passent en colonne unique
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .values {
+    padding: variables.$section-padding-mobile 0;
+  }
+
+  .values__conclusion {
+    font-size: 0.9rem;
+  }
 }

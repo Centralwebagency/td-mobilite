@@ -4,321 +4,502 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TD Mobilité — Autocars & coordination transport</title>
-  <meta name="description" content="TD Mobilité coordonne vos transports en autocar (entreprises, événements, scolaires). Devis rapide, réseau national d’autocaristes.">
+  <meta name="description" content="TD Mobilité coordonne vos transports en autocar (entreprises, événements, scolaires). Devis rapide, réseau national d'autocaristes.">
   <link rel="canonical" href="https://td-mobilite.fr/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@100..900&display=swap" rel="stylesheet">
-  <meta name="google-site-verification" content="sQrAd16M_JMYeB6FVSgXt_f9xAZhJRoNhT_ITr_VdGQ" />
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TD Mobilité",
-  "url": "https://td-mobilite.fr/",
-  "logo": "https://td-mobilite.fr/images/logo.jpg",
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+33-6-76-72-38-21",
-      "contactType": "customer service",
-      "areaServed": "FR",
-      "availableLanguage": ["fr"]
-    }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "41 Rue Victor Hugo",
-    "addressLocality": "Vienne",
-    "postalCode": "38200",
-    "addressCountry": "FR"
-  }
-}
-</script>
 
+  <meta name="google-site-verification" content="sQrAd16M_JMYeB6FVSgXt_f9xAZhJRoNhT_ITr_VdGQ">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TD Mobilité",
+    "url": "https://td-mobilite.fr/",
+    "logo": "https://td-mobilite.fr/images/logo.jpg",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+33-6-76-72-38-21",
+        "contactType": "customer service",
+        "areaServed": "FR",
+        "availableLanguage": ["fr"]
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "41 Rue Victor Hugo",
+      "addressLocality": "Vienne",
+      "postalCode": "38200",
+      "addressCountry": "FR"
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <header class="site-header">
-  <div class="container">
-    <a class="brand" href="/">
-    <img src="images/logo-header.webp" alt="TD Mobilité - Thierry Delaigue"></a>
+  <!-- ===========================
+       HEADER / NAVIGATION
+       Nouveauté : classe .site-header--scrolled ajoutée par JS au scroll
+       pour activer l'effet backdrop-blur + fond sombre
+  =========================== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
 
-    <nav class="main-nav" aria-label="Navigation principale">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="brand" href="/" aria-label="Retour à l'accueil TD Mobilité">
+        <img src="images/logo-header.webp" alt="TD Mobilité - Thierry Delaigue" width="160" height="48">
+      </a>
 
-      <ul id="menu" class="menu">
-        <li><a href="/" aria-current="page">Accueil</a></li>
-        <li><a href="prestations.html">Prestations</a></li>
-        <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="contact.html">Contact / Devis</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu"
+          aria-label="Ouvrir le menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul id="menu" class="menu" role="list">
+          <li><a href="/" aria-current="page">Accueil</a></li>
+          <li><a href="prestations.html">Prestations</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html" class="menu__cta">Contact / Devis</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
   <main id="content">
 
+    <!-- ===========================
+         HERO
+         Nouveautés :
+         - .hero-badge : pastille animée "disponibilité" en haut
+         - .hero-stats  : 3 chiffres-clés en bas du bloc texte
+         - .hero-media reste masqué (l'image est en background CSS)
+    =========================== -->
     <section id="hero" class="hero reveal">
       <div class="container">
-        <h1>Besoin d’un transport ? <span class="nowrap">TD Mobilité</span> s’occupe de tout.</h1>
-        <p class="lead">Un seul interlocuteur, tout un réseau d’autocaristes partout en France.</p>
+
+        <!-- Pastille animée -->
+        <div class="hero-badge" aria-hidden="true">
+          <span class="hero-badge__dot"></span>
+          Disponible 7j/7 — Partout en France
+        </div>
+
+        <h1>Besoin d'un transport&nbsp;?
+          <span class="hero__highlight nowrap">TD&nbsp;Mobilité</span> s'occupe de tout.
+        </h1>
+
+        <p class="lead">
+          Un seul interlocuteur, tout un réseau d'autocaristes partout en France.
+        </p>
 
         <div class="hero-actions">
           <a href="contact.html#formulaire-contact" class="btn btn-primary">Demander un devis</a>
-          <a href="prestations.html" class="btn">Voir les services</a>
+          <a href="prestations.html" class="btn btn-ghost">Voir les services</a>
         </div>
 
-        <figure class="hero-media">
-          <img src="images/hero.webp" alt="Autocars prêts au départ" width="1024" height="768" fetchpriority="high" decoding="async">
-          <figcaption>Coordination transport pour groupes & événements.</figcaption>
+        <!-- Chiffres-clés -->
+        <div class="hero-stats" aria-label="Chiffres clés">
+          <div class="hero-stat">
+            <strong class="hero-stat__num">9–84</strong>
+            <span class="hero-stat__label">Places disponibles</span>
+          </div>
+          <div class="hero-stat">
+            <strong class="hero-stat__num">10 000+</strong>
+            <span class="hero-stat__label">Participants coordonnés</span>
+          </div>
+          <div class="hero-stat">
+            <strong class="hero-stat__num">100%</strong>
+            <span class="hero-stat__label">Suivi personnalisé</span>
+          </div>
+        </div>
+
+        <!-- Image cachée (background géré en CSS) -->
+        <figure class="hero-media" aria-hidden="true">
+          <img src="images/hero.webp" alt="" width="1024" height="768"
+               fetchpriority="high" decoding="async">
         </figure>
+
       </div>
     </section>
 
-    <!-- ============ SECTION BIO ========== -->
-    <section class="bio reveal">
+
+    <!-- ===========================
+         BIO
+         Nouveauté : .bio__accent-bar (barre latérale colorée rendue en CSS)
+    =========================== -->
+    <section class="bio reveal" aria-labelledby="bio-title">
       <div class="container-bio">
-        <h2>Votre partenaire de transport</h2>
-        <p>
-          TD Mobilité est spécialisée dans la coordination de <strong>transports en autocar</strong> à travers toute la France. 
-          Que ce soit pour un transfert local, une navette événementielle ou un voyage longue distance, 
-          nous mobilisons rapidement les véhicules adaptés à vos besoins.
-        </p>
-        <p>
-          Grâce à notre flotte <strong>d’autocars</strong> disponibles et à notre large réseau de partenaires rigoureusement sélectionnés,
-          nous assurons la mise à disposition de véhicules de 9 à 84 places pour les entreprises, les collectivités,
-          les associations et les particuliers.
-        </p>
-        <p>
-          Notre priorité, vous offrir un service réactif, fiable et de qualité, avec un accompagnement logistique 
-          complet et une approche 100% personnalisée. TD Mobilité vous apporte une réponse simple, efficace 
-          et professionnelle pour tous vos projets de transport en <strong>autocar</strong>.
-        </p>
+        <div class="bio__accent-bar" aria-hidden="true"></div>
+        <div class="bio__content">
+          <h2 id="bio-title">Votre partenaire de transport</h2>
+          <p>
+            TD Mobilité est spécialisée dans la coordination de <strong>transports en autocar</strong>
+            à travers toute la France. Que ce soit pour un transfert local, une navette événementielle
+            ou un voyage longue distance, nous mobilisons rapidement les véhicules adaptés à vos besoins.
+          </p>
+          <p>
+            Grâce à notre flotte d'autocars disponibles et à notre large réseau de partenaires
+            rigoureusement sélectionnés, nous assurons la mise à disposition de véhicules de
+            <strong>9 à 84 places</strong> pour les entreprises, les collectivités, les associations
+            et les particuliers.
+          </p>
+          <p>
+            Notre priorité : vous offrir un service réactif, fiable et de qualité, avec un
+            accompagnement logistique complet et une approche 100 % personnalisée.
+          </p>
+        </div>
       </div>
     </section>
 
 
-    <!-- ============ SERVICES ============ -->
-    <section id="services" class="section services reveal">
+    <!-- ===========================
+         SERVICES
+         Nouveautés :
+         - .section-tag : étiquette colorée au-dessus du h2
+         - .service-card__icon : icône emoji dans un carré arrondi
+         - .service-card__bar : barre animée en haut de la carte (::before en CSS)
+    =========================== -->
+    <section id="services" class="section services reveal" aria-labelledby="services-title">
       <div class="container">
+
         <header class="section-header">
-          <h2>Services</h2>
-          <p class="section-intro">Prestations sur-mesure pour entreprises, collectivités et événements.</p>
+          <span class="section-tag">Services</span>
+          <h2 id="services-title">Prestations sur-mesure</h2>
+          <p class="section-intro">Pour entreprises, collectivités et événements.</p>
         </header>
 
         <div class="services-grid">
+
           <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🚌</div>
             <h3>Mise à disposition véhicules</h3>
             <p>Berline, Vans, minibus, Autocars de 9 à 84 places, conducteurs expérimentés.</p>
           </article>
 
           <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">📋</div>
             <h3>Régulation & coordination</h3>
             <p>Planning, brief chauffeurs, suivi en temps réel le jour J.</p>
           </article>
 
           <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🎯</div>
             <h3>Navettes événementielles</h3>
             <p>Allotement multi-autocaristes, rotations optimisées.</p>
           </article>
 
           <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🏢</div>
             <h3>Entreprises & séminaires</h3>
             <p>Transferts gares/aéroports, visites de sites, soirées.</p>
           </article>
 
           <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🛡️</div>
             <h3>Conformité & sécurité</h3>
             <p>Assurances et documents à jour, remplacements express.</p>
           </article>
 
+          <!-- BUGFIX SEO : balise </article> manquante dans la version originale -->
           <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">🎓</div>
             <h3>Scolaires & associations</h3>
             <p>Sorties, compétitions, voyages France/UE.</p>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- =========== BANDEAU ================ -->
-    <section class="bandeau reveal">
+
+    <!-- ===========================
+         BANDEAU
+         Pas de changement structurel majeur —
+         le fond (background-image) reste géré en CSS
+    =========================== -->
+    <section class="bandeau reveal" aria-label="Notre engagement">
+      <div class="bandeau__overlay" aria-hidden="true"></div>
       <div class="bandeau-content">
-      <h2>Vos projets, notre expertise</h2>
-      <p>Nous organisons, et coordonnons vos déplacements et événements en toute confiance</p>
+        <h2>Vos projets, notre expertise</h2>
+        <p>Nous organisons et coordonnons vos déplacements et événements en toute confiance.</p>
+        <a href="contact.html#formulaire-contact" class="btn btn-bandeau">Nous contacter</a>
       </div>
     </section>
 
 
-    <!-- ============ ÉVÉNEMENTS ============ -->
-    <section id="evenements" class="section events reveal">
+    <!-- ===========================
+         ÉVÉNEMENTS
+         Nouveauté :
+         - .section-tag
+         - .event-card__icon séparé du texte
+    =========================== -->
+    <section id="evenements" class="section events reveal" aria-labelledby="events-title">
       <div class="container">
+
         <header class="section-header">
-          <h2>Événements pris en charge</h2>
+          <span class="section-tag">Événements</span>
+          <h2 id="events-title">Événements pris en charge</h2>
           <p class="section-intro">Nous dimensionnons le dispositif de 50 à 10 000+ participants.</p>
         </header>
 
         <div class="events-grid">
+
           <article class="event-card">
+            <div class="event-card__icon" aria-hidden="true">🎵</div>
             <h3>Festivals & concerts</h3>
             <p>Navettes parking ⇄ site, circuits multi-stops, encadrement.</p>
           </article>
+
           <article class="event-card">
+            <div class="event-card__icon" aria-hidden="true">⚽</div>
             <h3>Sports</h3>
             <p>Matchs, tournois, déplacements équipes et supporters.</p>
           </article>
+
           <article class="event-card">
+            <div class="event-card__icon" aria-hidden="true">🏛️</div>
             <h3>Entreprises</h3>
             <p>Congrès, salons, navettes hôtels et soirées de gala.</p>
           </article>
+
           <article class="event-card">
+            <div class="event-card__icon" aria-hidden="true">✈️</div>
             <h3>Gares & Aéroports</h3>
-            <p>Transferts et navettes : Gare de Lyon Part Dieu et Perrache, aéroport Saint Exupery.</p>
+            <p>Transferts et navettes&nbsp;: Gare de Lyon Part Dieu et Perrache,
+               aéroport Saint-Exupéry.</p>
           </article>
+
         </div>
       </div>
     </section>
 
-  <section id="galerie" class="section galerie reveal">
-    <div class="container">
-    <header class="section-header">
-      <h2>Galerie</h2>
-      <p class="section-intro">Quelques images de nos prestations et événements récents.</p>
-    </header>
 
-    <div class="gallery-grid">
-      <figure class="gallery-item"><img src="images/gallery1.webp" alt="Autocar prêt au départ Lyon"></figure>
-      <figure class="gallery-item"><img src="images/gallery2.webp" alt="Navette autocar événementielle en action à Lyon"></figure>
-      <figure class="gallery-item"><img src="images/gallery3.webp" alt="Coordination transport pour un festival à Lyon"></figure>
-      <figure class="gallery-item"><img src="images/gallery4.webp" alt="Accueil de groupe en autocar à Lyon"></figure>
-      <figure class="gallery-item"><img src="images/gallery5.webp" alt="Déplacement sportif en autocar à Lyon"></figure>
-      <figure class="gallery-item"><img src="images/gallery6.webp" alt="Séminaire entreprise transporté en autocar à Lyon"></figure>
-    </div>
-  </div>
-</section>
-
-
-    <!-- ============ FONCTIONNEMENT ============ -->
-    <section id="fonctionnement" class="section process reveal reveal-fade">
+    <!-- ===========================
+         GALERIE
+         Corrections SEO/perf :
+         - loading="lazy" ajouté sur toutes les images
+         - aria-labelledby sur la section
+         - aria-label sur chaque figure
+    =========================== -->
+    <section id="galerie" class="section galerie reveal" aria-labelledby="galerie-title">
       <div class="container">
+
         <header class="section-header">
-          <h2>Comment ça marche ?</h2>
+          <span class="section-tag">Galerie</span>
+          <h2 id="galerie-title">Nos prestations en images</h2>
+          <p class="section-intro">Quelques images de nos prestations et événements récents.</p>
+        </header>
+
+        <div class="gallery-grid" role="list">
+
+          <figure class="gallery-item" role="listitem" aria-label="Autocar prêt au départ à Lyon">
+            <img src="images/gallery1.webp" alt="Autocar prêt au départ Lyon"
+                 loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+
+          <figure class="gallery-item" role="listitem" aria-label="Navette autocar événementielle à Lyon">
+            <img src="images/gallery2.webp" alt="Navette autocar événementielle en action à Lyon"
+                 loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+
+          <figure class="gallery-item" role="listitem" aria-label="Coordination transport pour un festival à Lyon">
+            <img src="images/gallery3.webp" alt="Coordination transport pour un festival à Lyon"
+                 loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+
+          <figure class="gallery-item" role="listitem" aria-label="Accueil de groupe en autocar à Lyon">
+            <img src="images/gallery4.webp" alt="Accueil de groupe en autocar à Lyon"
+                 loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+
+          <figure class="gallery-item" role="listitem" aria-label="Déplacement sportif en autocar à Lyon">
+            <img src="images/gallery5.webp" alt="Déplacement sportif en autocar à Lyon"
+                 loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+
+          <figure class="gallery-item" role="listitem" aria-label="Séminaire entreprise transporté en autocar à Lyon">
+            <img src="images/gallery6.webp" alt="Séminaire entreprise transporté en autocar à Lyon"
+                 loading="lazy" decoding="async" width="800" height="600">
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         FONCTIONNEMENT
+         Nouveauté :
+         - .step__num : pastille numérotée (stylée en CSS avec $primary-color)
+         - Le dernier step prend .step--accent pour une pastille orange
+    =========================== -->
+    <section id="fonctionnement" class="section process reveal" aria-labelledby="process-title">
+      <div class="container">
+
+        <header class="section-header">
+          <span class="section-tag">Fonctionnement</span>
+          <h2 id="process-title">Comment ça marche&nbsp;?</h2>
           <p class="section-intro">Simple et efficace avec un seul contact.</p>
         </header>
 
-        <ol class="steps">
+        <ol class="steps" role="list">
+
           <li class="step">
-            <h3>1. Brief express</h3>
-            <p>Dates, lieux, volumes. Conseils et cadrage.</p>
+            <span class="step__num" aria-hidden="true">1</span>
+            <div class="step__body">
+              <h3>Brief express</h3>
+              <p>Dates, lieux, volumes. Conseils et cadrage de votre projet.</p>
+            </div>
           </li>
+
           <li class="step">
-            <h3>2. Devis & plan</h3>
-            <p>Capacités, rotations, points de prise en charge.</p>
+            <span class="step__num" aria-hidden="true">2</span>
+            <div class="step__body">
+              <h3>Devis & plan de transport</h3>
+              <p>Capacités, rotations, points de prise en charge optimisés.</p>
+            </div>
           </li>
+
           <li class="step">
-            <h3>3. Opération & régulation</h3>
-            <p>Coordination chauffeurs, ajustements en direct.</p>
+            <span class="step__num" aria-hidden="true">3</span>
+            <div class="step__body">
+              <h3>Opération & régulation</h3>
+              <p>Coordination chauffeurs, ajustements en direct le jour J.</p>
+            </div>
           </li>
-          <li class="step">
-            <h3>4. Bilan</h3>
-            <p>Rex et facturation claire.</p>
+
+          <li class="step step--accent">
+            <span class="step__num" aria-hidden="true">4</span>
+            <div class="step__body">
+              <h3>Bilan & facturation</h3>
+              <p>Retour d'expérience et facturation claire et transparente.</p>
+            </div>
           </li>
+
         </ol>
       </div>
     </section>
 
-    <section id="why-us" class="why-us">
+
+    <!-- ===========================
+         POURQUOI NOUS
+    =========================== -->
+    <section id="why-us" class="why-us reveal" aria-labelledby="why-title">
       <div class="container">
-        <h2>Pourquoi nous ?</h2>
-        <p>Découvrez notre histoire, nos valeurs et pourquoi TD Mobilité est le partenaire idéal pour vos déplacements.</p>
+        <span class="section-tag">Notre histoire</span>
+        <h2 id="why-title">Pourquoi nous choisir&nbsp;?</h2>
+        <p>Découvrez notre histoire, nos valeurs et pourquoi TD Mobilité est le partenaire
+           idéal pour vos déplacements.</p>
         <a href="a-propos.html" class="btn btn-primary">En savoir plus</a>
       </div>
     </section>
-  
-    <!-- ============ AVIS ============ -->
-    <!-- SECTION : Avis Google / Google Business -->
-<section id="google-business" class="gb-section" aria-labelledby="gb-title">
-  <div class="gb-container">
-    <h2 id="gb-title">Avis Google</h2>
-    <p class="gb-subtitle">Découvrez les retours de nos clients et laissez le vôtre ⭐</p>
-
-    <!-- Carte Google Maps (iframe officielle) -->
-    <div class="gb-map">
-      <!-- 🔧 Remplace le src par celui fourni par Google Maps (Partager > Intégrer une carte) -->
-      <iframe
-        class="gb-map-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d89450.30186952499!2d4.793898511271064!3d45.5237267786005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8d3f563a4ade87af%3A0xa4ad68600fe6a613!2s41%20Rue%20Victor%20Hugo%2C%2038200%20Vienne!3m2!1d45.523756399999996!2d4.8762991!5e0!3m2!1sfr!2sfr!4v1760179653623!5m2!1sfr!2sfr" 
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        aria-label="Emplacement Google Maps de l'entreprise">
-      </iframe>
-    </div>
-
-    <!-- Boutons vers la fiche Google -->
-    <div class="gb-actions">
-      <a
-        class="gb-btn gb-btn--primary"
-        href="https://share.google/8KriCXDETifCzcoG6"
-        target="_blank"
-        rel="noopener">
-        Voir nos avis sur Google
-      </a>
-
-      <a
-        class="gb-btn gb-btn--outline"
-        href="https://search.google.com/local/writereview?placeid=ChIJr4feSjpWP40RE6bmD2BoraQ"
-        target="_blank"
-        rel="noopener">
-        Laisser un avis
-      </a>
-    </div>
-
-    <p class="gb-fallback">
-      Si la carte ne s’affiche pas, consultez directement nos avis sur
-      <a href="https://share.google/8KriCXDETifCzcoG6" target="_blank" rel="noopener">Google</a>.
-    </p>
-  </div>
-</section>
 
 
+    <!-- ===========================
+         AVIS GOOGLE / CARTE
+    =========================== -->
+    <section id="google-business" class="gb-section reveal" aria-labelledby="gb-title">
+      <div class="gb-container">
 
-  
+        <span class="section-tag">Avis clients</span>
+        <h2 id="gb-title">Avis Google</h2>
+        <p class="gb-subtitle">Découvrez les retours de nos clients et laissez le vôtre ⭐</p>
+
+        <div class="gb-map">
+          <iframe
+            class="gb-map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d89450.30186952499!2d4.793898511271064!3d45.5237267786005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8d3f563a4ade87af%3A0xa4ad68600fe6a613!2s41%20Rue%20Victor%20Hugo%2C%2038200%20Vienne!3m2!1d45.523756399999996!2d4.8762991!5e0!3m2!1sfr!2sfr!4v1760179653623!5m2!1sfr!2sfr"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation TD Mobilité sur Google Maps"
+            aria-label="Carte Google Maps — TD Mobilité, 41 Rue Victor Hugo, Vienne">
+          </iframe>
+        </div>
+
+        <div class="gb-actions">
+          <a class="gb-btn gb-btn--primary"
+             href="https://share.google/8KriCXDETifCzcoG6"
+             target="_blank"
+             rel="noopener noreferrer">
+            Voir nos avis sur Google
+          </a>
+          <a class="gb-btn gb-btn--outline"
+             href="https://search.google.com/local/writereview?placeid=ChIJr4feSjpWP40RE6bmD2BoraQ"
+             target="_blank"
+             rel="noopener noreferrer">
+            Laisser un avis
+          </a>
+        </div>
+
+        <p class="gb-fallback">
+          Si la carte ne s'affiche pas, consultez directement nos avis sur
+          <a href="https://share.google/8KriCXDETifCzcoG6" target="_blank" rel="noopener noreferrer">Google</a>.
+        </p>
+
+      </div>
+    </section>
 
   </main>
+
+
+  <!-- ===========================
+       FOOTER
+       Pas de changement structurel —
+       data-year toujours rempli par script.js
+  =========================== -->
   <footer class="site-footer">
-  <div class="container">
-    <div class="footer-brand">
-      <img src="images/logo.webp" alt="Logo TD Mobilité">
-      <p>© <span data-year></span> TD Mobilité</p>
-    </div>
+    <div class="container">
 
-    <div class="footer-contact">
-      <p><strong>Email :</strong> <a href="mailto:thierry.delaigue@td-mobilite.fr">thierry.delaigue@td-mobilite.fr</a></p>
-      <p><strong>Tél :</strong> <a href="tel:+33676723821">06 76 72 38 21</a></p>
-    </div>
+      <div class="footer-brand">
+        <img src="images/logo.webp" alt="Logo TD Mobilité" width="120" height="40" loading="lazy">
+        <p>© <span data-year></span> TD Mobilité</p>
+      </div>
 
-    <div class="footer-links">
-      <p><a href="mentions-legales.html">Mentions légales</a></p>
-      <p><a href="cgv.html">CGV</a></p>
-      <p><a href="location-autocar-lyon.html">Location Autocar Lyon</a></p>
-      <p><a href="location-autocar-saint-etienne.html">Location Autocar Saint-Étienne</a></p>
-      <p><a href="location-autocar-grenoble.html">Location Autocar Grenoble</a></p>
-      <p><a href="location-autocar-clermont-ferrand.html">Location Autocar Clermont-Ferrand</a></p>
-      <p><a href="location-autocar-france.html">Location Autocar France</a></p>
-      <p>Site créé par <a href="https://central-web-agency.com" target="_blank" rel="noopener">Central Web Agency</a></p>
+      <div class="footer-contact">
+        <p><strong>Email&nbsp;:</strong>
+          <a href="mailto:thierry.delaigue@td-mobilite.fr">thierry.delaigue@td-mobilite.fr</a></p>
+        <p><strong>Tél&nbsp;:</strong>
+          <a href="tel:+33676723821">06 76 72 38 21</a></p>
+      </div>
+
+      <nav class="footer-links" aria-label="Liens utiles">
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+        <p><a href="cgv.html">CGV</a></p>
+        <p><a href="location-autocar-lyon.html">Location Autocar Lyon</a></p>
+        <p><a href="location-autocar-saint-etienne.html">Location Autocar Saint-Étienne</a></p>
+        <p><a href="location-autocar-grenoble.html">Location Autocar Grenoble</a></p>
+        <p><a href="location-autocar-clermont-ferrand.html">Location Autocar Clermont-Ferrand</a></p>
+        <p><a href="location-autocar-france.html">Location Autocar France</a></p>
+        <p>Site créé par
+          <a href="https://central-web-agency.com" target="_blank" rel="noopener noreferrer">
+            Central Web Agency
+          </a>
+        </p>
+      </nav>
+
     </div>
-  </div>
-</footer>
- <script src="js/script.js" defer></script>
- <script src="js/reveal.js" defer></script>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+
 </body>
 </html>
-
-

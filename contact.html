@@ -6,236 +6,314 @@
   <title>Contact & devis — TD Mobilité (autocars, coordination transport)</title>
   <meta name="description" content="Contactez TD Mobilité pour un devis rapide : autocars, navettes événementielles, coordination transport pour entreprises, scolaires et événements partout en France.">
   <link rel="canonical" href="https://td-mobilite.fr/contact.html">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TD Mobilité",
-  "url": "https://td-mobilite.fr/",
-  "logo": "https://td-mobilite.fr/images/logo.jpg",
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+33-6-76-72-38-21",
-      "contactType": "customer service",
-      "areaServed": "FR",
-      "availableLanguage": ["fr"]
-    }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "41 Rue Victor Hugo",
-    "addressLocality": "Vienne",
-    "postalCode": "38200",
-    "addressCountry": "FR"
-  }
-}
-</script>
 
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TD Mobilité",
+    "url": "https://td-mobilite.fr/",
+    "logo": "https://td-mobilite.fr/images/logo.jpg",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+33-6-76-72-38-21",
+        "contactType": "customer service",
+        "areaServed": "FR",
+        "availableLanguage": ["fr"]
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "41 Rue Victor Hugo",
+      "addressLocality": "Vienne",
+      "postalCode": "38200",
+      "addressCountry": "FR"
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <header class="site-header">
-  <div class="container">
-    <a class="brand" href="index.html">
-    <img src="images/logo-header.webp" alt="TD Mobilité - Thierry Delaigue"></a>
+  <header class="site-header" id="site-header">
+    <div class="container">
 
-    <nav class="main-nav" aria-label="Navigation principale">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="brand" href="/" aria-label="Retour à l'accueil TD Mobilité">
+        <img src="images/logo-header.webp" alt="TD Mobilité - Thierry Delaigue" width="160" height="48">
+      </a>
 
-      <ul id="menu" class="menu">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="prestations.html">Prestations</a></li>
-        <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="contact.html" aria-current="page">Contact / Devis</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu"
+          aria-label="Ouvrir le menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul id="menu" class="menu" role="list">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="prestations.html">Prestations</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html" aria-current="page" class="menu__cta">Contact / Devis</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
 
 
-  
   <main id="content">
 
-    
-    <section id="hero" class="hero">
+    <!-- ===========================
+         HERO
+    =========================== -->
+    <section id="hero" class="hero hero--inner reveal">
       <div class="container">
-        <h1>Contactez TD Mobilité</h1>
-        <p class="lead">Expliquez-nous votre besoin en transport : un interlocuteur unique vous conseille et vous répond rapidement.</p>
 
-        <div class="hero-actions">
-          <a href="contact.html" class="btn btn-primary">Demander un devis</a>
-          <a href="prestations.html" class="btn">Voir les services</a>
+        <div class="hero-badge" aria-hidden="true">
+          <span class="hero-badge__dot"></span>
+          Réponse rapide — Un seul interlocuteur
         </div>
 
-        <figure class="hero-media">
-          <img src="images/hero.webp" alt="Autocars prêts au départ" width="1024" heigh="768" fetchpriority="high" decoding="async">
-          <figcaption>Coordination transport pour groupes & événements.</figcaption>
+        <h1>Contactez<br>TD Mobilité</h1>
+
+        <p class="lead">
+          Expliquez-nous votre besoin : un interlocuteur unique vous conseille
+          et vous répond rapidement avec un plan clair.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#formulaire-contact" class="btn btn-primary">Aller au formulaire</a>
+          <a href="prestations.html" class="btn btn-ghost">Voir les services</a>
+        </div>
+
+        <figure class="hero-media" aria-hidden="true">
+          <img src="images/hero.webp" alt="" width="1024" height="768"
+               fetchpriority="high" decoding="async">
         </figure>
+
       </div>
     </section>
 
-    <!-- ====== Contact — Intro ====== -->
-<section class="contact-intro">
-  <div class="container">
-    <h2>Parlons de votre besoin</h2>
-    <p>
-      Plus vous nous donnez de détails, plus nous pourrons vous proposer une solution précise : 
-      dates, lieux, horaires, nombre de personnes, type d’événement (séminaire, festival, scolaire…), 
-      contraintes spécifiques (PMR, bagages volumineux, multi-stops). 
-      Un interlocuteur unique vous répond rapidement avec un plan clair.
-    </p>
-  </div>
-</section>
 
-<section class="contact-direct" id="formulaire-contact">
-  <div class="container">
-    <div class="contact-direct-block">
-      <h3>Par téléphone</h3>
-      <p><a href="tel:+33676723821">06 76 72 38 21</a></p>
-    </div>
-
-    <div class="contact-direct-block">
-      <h3>Par email</h3>
-      <p><a href="mailto:thierry.delaigue@td-mobilite.fr">thierry.delaigue@td-mobilite.fr</a></p>
-    </div>
-    </div>
-  </section>
-
-<section class="contact-section reveal">
-  <div class="container">
-    <h2>Demande de devis</h2>
-
-    <form class="contact-form" action="https://formspree.io/f/mzzakvra" method="POST">
-      <!-- Honeypot anti-spam (invisible pour l’utilisateur) -->
-      <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
-
-      <!-- Infos supplémentaires pour Formspree -->
-      <input type="hidden" name="_subject" value="TD Mobilité — Nouvelle demande de devis">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://www.td-mobilite.fr/merci.html">
-
-      <div class="field">
-        <label for="prenom">Prénom *</label>
-        <input id="prenom" name="prenom" type="text" required autocomplete="given-name">
+    <!-- ===========================
+         INTRO — Explication
+    =========================== -->
+    <section class="contact-intro reveal" aria-labelledby="contact-intro-title">
+      <div class="container">
+        <div class="contact-intro__inner">
+          <span class="section-tag">Votre demande</span>
+          <h2 id="contact-intro-title">Parlons de votre besoin</h2>
+          <p>
+            Plus vous nous donnez de détails, plus nous pourrons vous proposer une solution précise :
+            dates, lieux, horaires, nombre de personnes, type d'événement (séminaire, festival,
+            scolaire…), contraintes spécifiques (PMR, bagages volumineux, multi-stops).
+            Un interlocuteur unique vous répond rapidement avec un plan clair.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <div class="field">
-        <label for="nom">Nom *</label>
-        <input id="nom" name="nom" type="text" required autocomplete="family-name">
+
+    <!-- ===========================
+         CONTACT DIRECT — Téléphone & email
+    =========================== -->
+    <section class="contact-direct" aria-labelledby="contact-direct-title">
+      <div class="container">
+
+        <h2 id="contact-direct-title" class="contact-direct__title">Nous joindre directement</h2>
+
+        <div class="contact-direct__grid">
+
+          <a href="tel:+33676723821" class="contact-card">
+            <div class="contact-card__icon" aria-hidden="true">📞</div>
+            <h3>Par téléphone</h3>
+            <span class="contact-card__value">06 76 72 38 21</span>
+          </a>
+
+          <a href="mailto:thierry.delaigue@td-mobilite.fr" class="contact-card">
+            <div class="contact-card__icon" aria-hidden="true">✉️</div>
+            <h3>Par email</h3>
+            <span class="contact-card__value">thierry.delaigue@td-mobilite.fr</span>
+          </a>
+
+        </div>
       </div>
+    </section>
 
-      <div class="field">
-        <label for="entreprise">Entreprise / Organisation / Particuliers</label>
-        <input id="entreprise" name="entreprise" type="text" autocomplete="organization">
+
+    <!-- ===========================
+         FORMULAIRE DE DEVIS
+         Corrections :
+         - Suppression du _next en double
+         - Correction typo heigh → height sur l'image hero
+         - Le btn "Demander un devis" pointait sur contact.html (page courante)
+           → remplacé par #formulaire-contact dans le hero
+    =========================== -->
+    <section class="contact-section reveal" id="formulaire-contact"
+             aria-labelledby="form-title">
+      <div class="container">
+
+        <header class="contact-section__header">
+          <span class="section-tag">Formulaire</span>
+          <h2 id="form-title">Demande de devis</h2>
+          <p class="section-intro">Tous les champs marqués * sont obligatoires.</p>
+        </header>
+
+        <form class="contact-form" action="https://formspree.io/f/mzzakvra" method="POST"
+              novalidate>
+
+          <!-- Honeypot anti-spam — invisible pour l'utilisateur -->
+          <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
+
+          <!-- Métadonnées Formspree -->
+          <input type="hidden" name="_subject" value="TD Mobilité — Nouvelle demande de devis">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.td-mobilite.fr/merci.html">
+
+          <div class="field">
+            <label for="prenom">Prénom *</label>
+            <input id="prenom" name="prenom" type="text"
+                   required autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="nom">Nom *</label>
+            <input id="nom" name="nom" type="text"
+                   required autocomplete="family-name">
+          </div>
+
+          <div class="field">
+            <label for="entreprise">Entreprise / Organisation / Particulier</label>
+            <input id="entreprise" name="entreprise" type="text"
+                   autocomplete="organization">
+          </div>
+
+          <div class="field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email"
+                   required autocomplete="email" inputmode="email">
+          </div>
+
+          <div class="field">
+            <label for="tel">Téléphone *</label>
+            <input id="tel" name="tel" type="tel"
+                   required inputmode="tel" autocomplete="tel"
+                   pattern="[0-9+().\s\-]{6,}"
+                   title="Entrez un numéro valide.">
+          </div>
+
+          <div class="field">
+            <label for="service">Type de service *</label>
+            <select id="service" name="service" required>
+              <option value="">Choisir…</option>
+              <option value="autocar">Mise à disposition d'autocar</option>
+              <option value="navettes">Navettes événementielles</option>
+              <option value="entreprise">Entreprises & séminaires</option>
+              <option value="scolaire">Scolaires & associations</option>
+              <option value="vtc">Van / VTC</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="passagers">Nombre de passagers *</label>
+            <input id="passagers" name="passagers" type="number"
+                   min="1" required inputmode="numeric">
+          </div>
+
+          <div class="field">
+            <label for="depart">Lieu de départ *</label>
+            <input id="depart" name="depart" type="text"
+                   required autocomplete="address-level2">
+          </div>
+
+          <div class="field">
+            <label for="destination">Destination *</label>
+            <input id="destination" name="destination" type="text"
+                   required autocomplete="address-level2">
+          </div>
+
+          <div class="field">
+            <label for="date">Date *</label>
+            <input id="date" name="date" type="date" required>
+          </div>
+
+          <div class="field field--full">
+            <label for="message">Informations complémentaires</label>
+            <textarea id="message" name="message" rows="4"
+                      placeholder="Horaires, multi-stops, besoins spécifiques (PMR, bagages)…"></textarea>
+          </div>
+
+          <div class="field field--full checkbox">
+            <input id="consent" name="consent" type="checkbox" required>
+            <label for="consent">
+              J'accepte que mes données soient utilisées pour être recontacté.*
+              <a href="mentions-legales.html#donnees-personnelles">En savoir plus</a>
+            </label>
+          </div>
+
+          <div class="form-actions field--full">
+            <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+          </div>
+
+          <div class="form-status" role="status" aria-live="polite"></div>
+
+        </form>
       </div>
-
-      <div class="field">
-        <label for="email">Email *</label>
-        <input id="email" name="email" type="email" required autocomplete="email" inputmode="email">
-      </div>
-
-      <div class="field">
-        <label for="tel">Téléphone *</label>
-        <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel"
-               required pattern="[0-9+().\s-]{6,}" title="Entrez un numéro valide.">
-      </div>
-
-      <div class="field">
-        <label for="service">Type de service *</label>
-        <select id="service" name="service" required>
-          <option value="">Choisir…</option>
-          <option value="autocar">Mise à disposition d’autocar</option>
-          <option value="navettes">Navettes événementielles</option>
-          <option value="entreprise">Entreprises & séminaires</option>
-          <option value="scolaire">Scolaires & associations</option>
-          <option value="vtc">Van / VTC</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="passagers">Nombre de passagers *</label>
-        <input id="passagers" name="passagers" type="number" min="1" required inputmode="numeric">
-      </div>
-
-      <div class="field">
-        <label for="depart">Lieu de départ *</label>
-        <input id="depart" name="depart" type="text" required autocomplete="address-level2">
-      </div>
-
-      <div class="field">
-        <label for="destination">Destination *</label>
-        <input id="destination" name="destination" type="text" required autocomplete="address-level2">
-      </div>
-
-      <div class="field">
-        <label for="date">Date *</label>
-        <input id="date" name="date" type="date" required>
-      </div>
-
-      <div class="field">
-        <label for="message">Informations complémentaires</label>
-        <textarea id="message" name="message" rows="4" placeholder="Horaires, multi-stops, besoins spécifiques…"></textarea>
-      </div>
-
-      <div class="checkbox">
-        <input id="consent" name="consent" type="checkbox" required>
-        <label for="consent">
-          J’accepte que mes données soient utilisées pour être recontacté.* 
-          <a href="mentions-legales.html#donnees-personnelles">En savoir plus</a>
-        </label>
-      </div>
-
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
-      </div>
-
-      <!-- Zone de statut (optionnelle si tu gères un retour en JS) -->
-      <div class="form-status" role="status" aria-live="polite"></div>
-      <input type="hidden" name="_next" value="https://www.td-mobilite.fr/merci.html">
-
-    </form>
-  </div>
-</section>
+    </section>
 
   </main>
+
+
   <footer class="site-footer">
-  <div class="container">
-    <div class="footer-brand">
-      <img src="images/logo.webp" alt="Logo TD Mobilité">
-      <p>© <span data-year></span> TD Mobilité</p>
-    </div>
+    <div class="container">
 
-    <div class="footer-contact">
-      <p><strong>Email :</strong> <a href="mailto:thierry.delaigue@td-mobilite.fr">thierry.delaigue@td-mobilite.fr</a></p>
-      <p><strong>Tél :</strong> <a href="tel:+33676723821">06 76 72 38 21</a></p>
-    </div>
+      <div class="footer-brand">
+        <img src="images/logo.webp" alt="Logo TD Mobilité" width="120" height="40" loading="lazy">
+        <p>© <span data-year></span> TD Mobilité</p>
+      </div>
 
-    <div class="footer-links">
-      <p><a href="mentions-legales.html">Mentions légales</a></p>
-      <p><a href="cgv.html">CGV</a></p>
-      <p><a href="location-autocar-lyon.html">Location Autocar Lyon</a></p>
-      <p><a href="location-autocar-saint-etienne.html">Location Autocar Saint-Étienne</a></p>
-      <p><a href="location-autocar-grenoble.html">Location Autocar Grenoble</a></p>
-      <p><a href="location-autocar-clermont-ferrand.html">Location Autocar Clermont-Ferrand</a></p>
-      <p><a href="location-autocar-france.html">Location Autocar France</a></p>
-      <p>Site créé par <a href="https://central-web-agency.com" target="_blank" rel="noopener">Central Web Agency</a></p>
-    </div>
-  </div>
-</footer>
+      <div class="footer-contact">
+        <p><strong>Email&nbsp;:</strong>
+          <a href="mailto:thierry.delaigue@td-mobilite.fr">thierry.delaigue@td-mobilite.fr</a></p>
+        <p><strong>Tél&nbsp;:</strong>
+          <a href="tel:+33676723821">06 76 72 38 21</a></p>
+      </div>
 
- <script src="js/script.js" defer></script>
- <script src="js/reveal.js" defer></script>
+      <nav class="footer-links" aria-label="Liens utiles">
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+        <p><a href="cgv.html">CGV</a></p>
+        <p><a href="location-autocar-lyon.html">Location Autocar Lyon</a></p>
+        <p><a href="location-autocar-saint-etienne.html">Location Autocar Saint-Étienne</a></p>
+        <p><a href="location-autocar-grenoble.html">Location Autocar Grenoble</a></p>
+        <p><a href="location-autocar-clermont-ferrand.html">Location Autocar Clermont-Ferrand</a></p>
+        <p><a href="location-autocar-france.html">Location Autocar France</a></p>
+        <p>Site créé par
+          <a href="https://central-web-agency.com" target="_blank" rel="noopener noreferrer">
+            Central Web Agency
+          </a>
+        </p>
+      </nav>
+
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+
 </body>
 </html>

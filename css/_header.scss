@@ -1,145 +1,249 @@
+// =============================================================================
+// _header.scss — Navigation principale
+//
+// Comportement :
+//   - Par défaut : transparent (sur le hero)
+//   - .site-header--scrolled : fond sombre + backdrop-blur (ajouté par script.js)
+//   - Mobile : menu burger, fullscreen overlay
+// =============================================================================
+
 @use 'variables';
 
+
+// =============================================================================
+// SITE-HEADER — Conteneur de la barre de navigation
+// =============================================================================
+
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 2000;
-  background: #fff;
-  border-bottom: 1px solid #e5e7eb;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  // Fond sombre semi-opaque en permanence : évite les liens blancs invisibles
+  // sur les sections claires (contact, mentions légales, etc.)
+  background-color: rgba(variables.$dark, 0.82);
+  transition: background-color variables.$transition-smooth,
+              box-shadow variables.$transition-smooth,
+              backdrop-filter variables.$transition-smooth;
 
   .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     height: 70px;
   }
+}
 
-  .brand {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: variables.$primary-color;
-  }
+// Au scroll : fond plein + flou pour renforcer la lisibilité
+.site-header--scrolled {
+  background-color: rgba(variables.$dark, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: variables.$shadow-nav;
+}
 
-  .brand img {
-    max-height: 80px;
+
+// =============================================================================
+// BRAND — Logo dans la nav
+// =============================================================================
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  img {
+    height: 44px;
     width: auto;
-    display: block;
+    // Le fond du header est toujours sombre — on force le logo en blanc
+    // Si le logo est déjà blanc natif, supprimer cette ligne
+    filter: brightness(0) invert(1);
   }
-  .main-nav { 
-    position: relative; 
+}
+
+
+// =============================================================================
+// MAIN-NAV — Wrapper de navigation desktop
+// =============================================================================
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+
+// =============================================================================
+// MENU — Liste des liens de navigation
+// =============================================================================
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+
+  a {
+    color: rgba(variables.$white, 0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.75rem;
+    border-radius: variables.$radius-sm;
+    transition: color variables.$transition-base,
+                background-color variables.$transition-base;
+
+    &:hover {
+      color: variables.$white;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    &[aria-current="page"] {
+      color: variables.$primary-color;
+    }
+  }
+}
+
+// Lien "Contact / Devis" stylé comme un CTA dans la nav
+.menu__cta {
+  background-color: variables.$primary-color !important;
+  color: variables.$white !important;
+  padding: 0.45rem 1rem !important;
+  border-radius: variables.$radius-md !important;
+
+  &:hover {
+    background-color: rgba(variables.$primary-color, 0.85) !important;
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+}
+
+
+// =============================================================================
+// NAV-TOGGLE — Bouton burger (mobile uniquement)
+// =============================================================================
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: variables.$radius-sm;
+  transition: background-color variables.$transition-base;
+
+  span {
+    display: block;
+    height: 2px;
+    background-color: variables.$white;
+    border-radius: variables.$radius-pill;
+    transition: transform variables.$transition-smooth,
+                opacity variables.$transition-base,
+                width variables.$transition-base;
+    transform-origin: center;
   }
 
-  
-  .menu {
-    list-style: none;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  // Animation burger → croix quand le menu est ouvert
+  &[aria-expanded="true"] {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; width: 0; }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+
+// =============================================================================
+// RESPONSIVE — Mobile : menu plein écran
+// =============================================================================
+
+@media (max-width: variables.$tablet) {
+
+  .nav-toggle {
     display: flex;
-    gap: 1.5rem;
-    margin: 0; padding: 0;
+    position: relative;
+    z-index: 200;
+  }
+
+  .menu {
+    // Plein écran — width+height explicites, plus fiables qu'inset:0 sur <ul>
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 150;
+
+    // Reset liste
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    // Centrage des liens
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    background-color: variables.$dark;
+
+    // FERMÉ
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+
+    // OUVERT
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    li {
+      width: 100%;
+      text-align: center;
+    }
 
     a {
-      font-weight: 500;
-      color: variables.$text-color;
-      font-family: "Lexend Tera", sans-serif;
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      color: rgba(variables.$white, 0.82);
+      transition: color variables.$transition-base,
+                  background-color variables.$transition-base;
 
-      &:hover { 
-        color: variables.$primary-color; 
+      &:hover,
+      &[aria-current="page"] {
+        color: variables.$white;
+        background-color: rgba(variables.$white, 0.06);
       }
     }
   }
 
-  .nav-toggle {
-    display: none;
-    width: 40px; height: 40px;
-    border: 0; background: transparent; cursor: pointer; padding: 0;
-    
+  .menu__cta {
+    display: inline-block;
+    width: auto !important;
+    margin-top: 0.5rem;
+    background-color: variables.$primary-color !important;
+    color: variables.$white !important;
+    border-radius: variables.$radius-md !important;
+    padding: 0.75rem 2rem !important;
 
-    span {
-      display: block;
-      width: 26px; height: 2px;
-      background: #111; border-radius: 2px;
-      margin: 6px auto;
-      transition: transform .25s ease, opacity .2s ease;
+    &:hover {
+      background-color: variables.$secondary-color !important;
+      color: variables.$white !important;
     }
-  }
-
-  /* ================= Mobile ================= */
-@media (max-width: variables.$tablet) {
-  
-  .nav-toggle {
-    display: block;
-    position: fixed;
-    top: 16px;
-    right: 14px;
-    width: 40px; height: 40px;
-    padding: 0;
-    border: 0;
-    background: rgba(0,0,0,0.06);  
-    border-radius: 8px;
-    cursor: pointer;
-    z-index: 3000;                 
-
-    span {
-      display: block;
-      width: 26px; height: 2px;
-      background: #111;            
-      border-radius: 2px;
-      margin: 6px auto;
-      transition: transform .25s ease, opacity .2s ease, background-color .2s ease;
-    }
-  }
-
-  
-  .main-nav.is-open .nav-toggle span { 
-    background: #fff; 
-  }
-
-  
-  .main-nav::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.45);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .28s ease;
-    z-index: 2100;
-  }
-
-  .main-nav.is-open::after { 
-    opacity: 1; pointer-events: auto; 
-  }
-
-  
-  .menu {
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    width: 100vw; height: 100vh;
-    margin: 0; padding: 2rem 1rem;
-    list-style: none;
-    background: rgba(17,24,39,.94);
-    color: #e5e7eb;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center; gap: 1rem;
-    transform: translateX(100%);
-    transition: transform .36s cubic-bezier(.22,.61,.36,1);
-    z-index: 2150;
-  }
-  .menu.show { 
-    transform: translateX(0); 
-  }
-
-  .menu a {
-    color: #e5e7eb;
-    font-size: 1.1rem; font-weight: 600;
-    padding: 1rem 1.25rem; border-radius: 10px;
-  }
-  .menu a:hover { 
-    background: rgba(255,255,255,.08); 
-  }
-
-  
-  .main-nav.is-open .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .main-nav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
-  .main-nav.is-open .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   }
 }
